@@ -1,4 +1,6 @@
-﻿namespace StringArrays10B24
+﻿using System.Diagnostics.Tracing;
+
+namespace StringArrays10B24
 {
     internal class Program
     {
@@ -16,14 +18,28 @@
             /* use fixed (hard coded) string arrays to test your code. 
              Call your subroutine using your test arrays from Main() routine
              and return the result to Main() */
-            
+
             /* Starter code for your subroutine has been provided*/
+            string[] word = { "u", "N", "s", "i", "g", "m", "a" };
+            string[] pre = { "u", "n", "s", "i" };
+            Console.WriteLine(Prefix(word, pre));
 
         }
-        static bool Prefix(string[] wor, string[] pre) 
+        static bool Prefix(string[] word, string[] pre) 
         {
+            if (pre.Length > word.Length)
+            {
+                return false;
+            }
 
-            return;
+            for (int i = 0; i < pre.Length; i++)
+            {
+                if (pre[i].ToLower() != word[i].ToLower())
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
